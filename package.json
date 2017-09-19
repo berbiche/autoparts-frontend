@@ -1,0 +1,16 @@
+{
+  "name": "autoparts",
+  "version": "1.0.0",
+  "description": "Application autoparts",
+  "main": "index.html",
+  "dependencies": {
+    "bulma": "^0.5.3",
+    "jquery": "^3.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "JP Becotte",
+  "license": "ISC"
+}
