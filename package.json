@@ -5,14 +5,20 @@
   "main": "index.html",
   "dependencies": {
     "bulma": "^0.5.3",
+    "jquery": "^3.2.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.7.1",
+    "eslint-config-airbnb-base": "^12.0.0",
+    "eslint-plugin-import": "^2.7.0",
     "http-server": "^0.10.0",
-    "jquery": "^3.2.1",
     "node-sass": "^4.5.3"
   },
-  "devDependencies": {},
   "scripts": {
+    "sass:build": "node-sass .\\src\\styles\\main.scss .\\dist\\output.css",
+    "sass:watch": "node-sass -w .\\src\\styles\\main.scss .\\dist\\output.css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "JP Becotte",
+  "author": "Nicolas Berbiche",
   "license": "ISC"
 }
