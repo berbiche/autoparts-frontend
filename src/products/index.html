@@ -3,14 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Bienvenue chez Autoparts!</title>
+    <base href="../../">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../dist/output.css">
-    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="dist/output.css">
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
 </head>
 <body>
     <div class="container">
         <h1>Liste des produits</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Code</th>
+                    <th>Name</th>
+                    <th>Quantité</th>
+                    <th>Price</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tfoot></tfoot>
+            <tbody id="products">
 
+            </tbody>
+        </table>
     </div>
+    <script src="src/products/index.js"></script>
 </body>
 </html>
