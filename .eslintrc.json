@@ -2,7 +2,6 @@
     "root": true,
     "parserOptions": {
         "ecmaVersion": 2017,
-        "sourceType": "module",
         "ecmaFeatures": {
             "experimentalObjectRestSpread": true
         }
@@ -11,9 +10,10 @@
         "browser": true,
         "jquery": true
     },
-    "extends": "airbnb",
+    "extends": "airbnb-base",
     "rules": {
-        "indent": [4, "space"],
+        "camelcase": "off",
+        "indent": ["error", 4],
         "quotes": ["error", "single", { "avoidEscape": true, "allowTemplateLiterals": true }]
     },
     "plugins": [
