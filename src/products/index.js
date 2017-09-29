@@ -1,20 +1,24 @@
 (function init_product() {
-    const url = `http://localhost:3033`;
+    'use strict';
+
+    const url = `http://localhost:3033/products`;
+    const generate_cell_row = (accumulator, product) =>
+        `${accumulator}
+        <tr>
+            <td>${product.code}</td>
+            <td>${product.name}</td>
+            <td>${product.inventoryActual}</td>
+            <td>${product.price}</td>
+            <td>${product.description || 'N/A'}</td>
+        </tr>`;
+
     $.getJSON(url)
         .then(({ data }) => {
-            const cellsContent = data
-                .map(x => x.data)
-                .reduce((accumulator, product) =>
-                    `${accumulator}
-                    <tr>
-                        <td>${product.code}</td>
-                        <td>${product.name}</td>
-                        <td>${product.inventoryActual}</td>
-                        <td>${product.price}</td>
-                        <td>${product.description}</td>
-                    </tr>`
-                    , '');
+            const tableContent = data.reduce(generate_cell_row, '');
 
-            $('#products').html(cellsContent);
+            $('#products')
+                .html(tableContent)
+                .parent()
+                .removeClass('hidden');
         });
 }());

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <title>Bienvenue chez Autoparts!</title>
@@ -8,25 +9,77 @@
     <link rel="stylesheet" href="dist/output.css">
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
 </head>
-<body>
-    <div class="container">
-        <h1>Liste des produits</h1>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Code</th>
-                    <th>Name</th>
-                    <th>Quantité</th>
-                    <th>Price</th>
-                    <th>Description</th>
-                </tr>
-            </thead>
-            <tfoot></tfoot>
-            <tbody id="products">
 
-            </tbody>
-        </table>
+<body>
+  <nav class="navbar is-dark" role="navigation" aria-label="dropdown navigation">
+    <div class="container">
+      <div class="navbar-menu is-active">
+        <div class="navbar-start">
+          <a class="navbar-item" href="src/index.html">Index</a>
+
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a href="src/products/index.html" class="navbar-link is-active">Catalogue</a>
+
+            <div class="navbar-dropdown">
+              <a href="src/products/index.html" class="navbar-item">Catalogue des produits</a>
+              <a href="src/products/add.html" class="navbar-item">Ajouter un produit</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <script src="src/products/index.js"></script>
+  </nav>
+
+  <section class="hero is-primary">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns isvcentered">
+          <div class="column">
+            <p class="title">Catalogue des produits</p>
+
+            <p class="subtitle">Tableau de tous les produits dans la base de donnée</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-foot">
+      <div class="container">
+        <nav class="tabs is-boxed">
+          <ul>
+            <li class="is-active">
+              <a href="documentation/frontend.html">Renomme-moi</a>
+            </li>
+
+            <li>
+              <a href="documentation/backend.html">Renomme-moi</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <table class="table is-fullwidth is-striped hidden">
+          <thead>
+              <tr>
+                  <th>Code</th>
+                  <th>Name</th>
+                  <th>Quantité</th>
+                  <th>Price</th>
+                  <th>Description</th>
+              </tr>
+          </thead>
+          <tbody id="products">
+            <!-- Section to be filled by the API result -->
+          </tbody>
+      </table>
+    </div>
+  </section>
+
+  <script src="src/products/index.js"></script>
 </body>
+
 </html>
