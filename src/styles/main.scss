@@ -3,3 +3,7 @@
 $primary: #cf9413;
 
 @import "../../node_modules/bulma/bulma.sass";
+
+.hidden {
+  display: none;
+}

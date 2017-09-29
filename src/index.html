@@ -7,111 +7,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Autoparts">
     <title>Bienvenue chez Autoparts!</title>
-    <base href="./">
+    <base href="../">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../dist/output.css">
-    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="dist/output.css">
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <!-- <script src="dist/site.min.js"></script> -->
 </head>
 
 <body>
-    <nav class="navbar is-dark" role="navigation" aria-label="dropdown navigation">
+  <nav class="navbar is-dark" role="navigation" aria-label="dropdown navigation">
+    <div class="container">
       <div class="navbar-menu">
         <div class="navbar-start">
-          <a class="navbar-item is-active" href="index.html">Index</a>
+          <a class="navbar-item is-active" href="src/index.html">Index</a>
 
           <div class="navbar-item has-dropdown is-hoverable">
-            <a href="products/index.html" class="navbar-link">Catalogue</a>
+            <a href="src/products/index.html" class="navbar-link">Catalogue</a>
 
             <div class="navbar-dropdown">
-              <a href="products/index.html" class="navbar-item">Catalogue des produits</a>
-              <a href="products/add.html" class="navbar-item">Ajouter un produit</a>
+              <a href="src/products/index.html" class="navbar-item">Catalogue des produits</a>
+              <a href="src/products/add.html" class="navbar-item">Ajouter un produit</a>
             </div>
           </div>
         </div>
       </div>
-    </nav>
+    </div>
+  </nav>
 
-    <section class="hero is-primary">
-        <div class="hero-body">
-            <div class="container">
-                <h1 class="title">
-                    Hero title
-                </h1>
-                <h2 class="subtitle">
-                    Hero subtitle
-                </h2>
-            </div>
-        </div>
-        <div class="hero-foot">
-            <div class="container">
-                <nav class="tabs is-boxed">
-                    <ul>
-                        <li class="is-active">
-                            <a>
-                              <span class="icon is-small"><i class="fa fa-image"></i></span>
-                              <span>Pictures</span>
-                          </a>
-                        </li>
-                        <li>
-                            <a>
-                              <span class="icon is-small"><i class="fa fa-music"></i></span>
-                              <span>Music</span>
-                          </a>
-                        </li>
-                        <li>
-                            <a>
-                              <span class="icon is-small"><i class="fa fa-film"></i></span>
-                              <span>Videos</span>
-                          </a>
-                        </li>
-                        <li>
-                            <a>
-                              <span class="icon is-small"><i class="fa fa-file-text-o"></i></span>
-                              <span>Documents</span>
-                          </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </section>
-    <section class="section">
-        <div class="container">
-            <h1 class="title">
-                Bienvenue au restaurant Untel
-            </h1>
-            <p class="subtitle">
-                Voici nos menus
-            </p>
+  <section class="hero is-primary">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns isvcentered">
+          <div class="column">
+            <p class="title">Documentation</p>
 
-            <div class="columns">
-                <div class="column">Menu du matin
-                    <hr>
-                    <ul>
-                        <li>Oeufs bénédictines</li>
-                        <li>Cassolette de fromage</li>
-                        <li>Bagels</li>
-                    </ul>
-                </div>
-                <div class="column">Menu du midi
-                    <hr>
-                    <ul>
-                        <li>Soupe</li>
-                        <li>Salade</li>
-                        <li>Sandwich au jambon</li>
-                    </ul>
-                </div>
-                <div class="column">Menu du soir
-                    <hr>
-                    <ul>
-                        <li>Pâtes</li>
-                        <li>Hamburger</li>
-                        <li>Hot Dogs</li>
-                    </ul>
-                </div>
-            </div>
+            <p class="subtitle">Informations sur le développement du projet</p>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+
+    <div class="hero-foot">
+      <div class="container">
+        <nav class="tabs is-boxed">
+          <ul>
+            <li class="is-active">
+              <a href="documentation/frontend.html">Frontend</a>
+            </li>
+
+            <li>
+              <a href="documentation/backend.html">Backend</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </section>
+
+  <!-- <script>
+    (function init() {
+      /**
+       * @constant {function}
+       * @returns {ElementListTagNameMap}
+       */
+      const $ = document.querySelectorAll.bind(document);
+
+      // Configure the tabs for the documentation section
+      $('.tabs a[href]').forEach((a) => {
+          a.addEventListener((e) => {
+
+          });
+      });
+    })();
+  </script> -->
 </body>
 
 </html>
