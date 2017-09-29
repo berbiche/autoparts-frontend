@@ -10,7 +10,6 @@
     <base href="../">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="dist/output.css">
-    <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <!-- <script src="dist/site.min.js"></script> -->
 </head>
 
@@ -34,52 +33,37 @@
     </div>
   </nav>
 
-  <section class="hero is-primary">
-    <div class="hero-body">
-      <div class="container">
-        <div class="columns isvcentered">
-          <div class="column">
-            <p class="title">Documentation</p>
+  <section id="main-content">
+    <section class="hero is-primary">
+      <div class="hero-body">
+        <div class="container">
+          <div class="columns isvcentered">
+            <div class="column">
+              <p class="title">Documentation</p>
 
-            <p class="subtitle">Informations sur le développement du projet</p>
+              <p class="subtitle">Informations sur le développement du projet</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="hero-foot">
-      <div class="container">
-        <nav class="tabs is-boxed">
-          <ul>
-            <li class="is-active">
-              <a href="documentation/frontend.html">Frontend</a>
-            </li>
+      <div class="hero-foot">
+        <div class="container">
+          <nav class="tabs is-boxed">
+            <ul>
+              <li class="is-active">
+                <a href="documentation/frontend.html">Frontend</a>
+              </li>
 
-            <li>
-              <a href="documentation/backend.html">Backend</a>
-            </li>
-          </ul>
-        </nav>
+              <li>
+                <a href="documentation/backend.html">Backend</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
       </div>
-    </div>
+    </section>
   </section>
-
-  <!-- <script>
-    (function init() {
-      /**
-       * @constant {function}
-       * @returns {ElementListTagNameMap}
-       */
-      const $ = document.querySelectorAll.bind(document);
-
-      // Configure the tabs for the documentation section
-      $('.tabs a[href]').forEach((a) => {
-          a.addEventListener((e) => {
-
-          });
-      });
-    })();
-  </script> -->
 </body>
 
 </html>
