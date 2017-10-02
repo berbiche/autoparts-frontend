@@ -1,22 +1,27 @@
 {
-    "root": true,
-    "parserOptions": {
-        "ecmaVersion": 2017,
-        "ecmaFeatures": {
-            "experimentalObjectRestSpread": true
-        }
-    },
-    "env": {
-        "browser": true,
-        "jquery": true
-    },
-    "extends": "airbnb-base",
-    "rules": {
-        "camelcase": "off",
-        "indent": ["error", 4],
-        "quotes": ["error", "single", { "avoidEscape": true, "allowTemplateLiterals": true }]
-    },
-    "plugins": [
-        "import"
-    ]
+  "root": true,
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "sourceType": "module",
+    "allowImportExportEverywhere": true,
+    "ecmaVersion": 2017,
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true
+    }
+  },
+  "env": {
+    "browser": true,
+    "jquery": true
+  },
+  "extends": "airbnb-base",
+  "rules": {
+    "block-spacing": ["error", { "classes": "always" }],
+    "camelcase": "off",
+    "indent": ["error", 4],
+    "quotes": ["error", "single", { "avoidEscape": true, "allowTemplateLiterals": true }],
+    "wrap-iife": ["error", "outside", { "functionPrototypeMethods": true }]
+  },
+  "plugins": [
+      "import"
+  ]
 }

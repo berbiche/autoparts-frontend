@@ -1,3 +1,12 @@
+import View from '../view';
+
+export default
+class Products extends View {
+    constructor() {
+        super();
+    }
+}
+
 // const generate_cell_row = (accumulator, product) =>
 // `${accumulator}
 // <tr>
