@@ -1,14 +1,16 @@
-const http          = require('http');
-const path          = require('path');
-const fs            = require('fs');
-const { promisify } = require('util')
+'use strict';
+
+const http = require('http');
+const path = require('path');
+const fs = require('fs');
+const { promisify } = require('util');
 
 
 // Display a message on SIGTERM/SIGINT/SIGKILL
 const process_finished = () => {
     console.log('Server closing');
     process.exit(process.exitCode);
-}
+};
 process.on('SIGINT', process_finished)
        .on('SIGTERM', process_finished);
 
@@ -20,7 +22,6 @@ const mimeTypeMap = new Map([
     ['.html', 'text/html'],
     ['.css', 'text/css'],
 ]);
-
 
 
 http.createServer()
