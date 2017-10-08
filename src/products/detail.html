@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Bienvenue chez Autoparts!</title>
+    <base href="../../">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="dist/output.css">
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+</head>
+
+<body>
+  <nav class="navbar is-dark" role="navigation" aria-label="dropdown navigation">
+    <div class="container">
+      <div class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item" href="index.html">Index</a>
+
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a href="products/index.html" class="navbar-link is-active">Catalogue</a>
+            <div class="navbar-dropdown">
+              <a href="products/index.html" class="navbar-item">Catalogue des produits</a>
+              <a href="products/detail.html" class="navbar-item is-active">Consulter un produit</a>
+              <a href="products/create.html" class="navbar-item">Ajouter un produit</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero is-primary">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns isvcentered">
+          <div class="column">
+            <h1 class="title">Ajouter un produit</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="section hidden">
+    <div class="container">
+      <form class="form" id="create-form" name="create-form">
+        <div class="field" id="field_code">
+          <Label class="label">Code</Label>
+          <div class="control">
+            <input class="input" type="text" placeholder="Code" name="code">
+          </div>
+        </div>
+
+        <div class="field" id="field_name">
+          <label class="label">Nom</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="Nom" name="name">
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Description</label>
+          <div class="control">
+            <textarea class="textarea" placeholder="Description" name="description"></textarea>
+          </div>
+        </div>
+
+        <div class="field" id="field_price">
+          <label class="label" for="price">Prix</label>          
+          <div class="control has-icons-left">
+            <input class="input" type="" placeholder="Prix" name="price" value="0">
+            <span class="icon is-small is-left">
+              <i class="fa fa-dollar"></i>
+            </span>
+          </div>
+        </div>
+
+        <div class="field">
+          <Label class="label">Quantité</Label>
+          <div class="control">
+            <input class="input" type="number" placeholder="Inventaire" name="inventoryActual" value="1">
+          </div>
+        </div>
+
+        <div class="colums">
+          <button type="button" class="button is-success is-outlined" id="ajouter">Ajouter</button>
+          <button type="button" class="button is-danger is-outlined" id="retour">Retour</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <script src="dist/produts/create.js"></script>
+</body>
+
+</html>
