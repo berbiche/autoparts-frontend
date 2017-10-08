@@ -1,8 +1,5 @@
-import Api from '../api';
-import { $, $$ } from '../utils';
+import { $, $$, API_PRODUCTS } from './common';
 
-
-const API_PRODUCTS = new Api('products');
 
 const generate_cell_row = (accumulator, product) =>
 `${accumulator}
@@ -14,13 +11,16 @@ const generate_cell_row = (accumulator, product) =>
     <td>${product.description || 'N/A'}</td>
 </tr>`;
 
-window.addEventListener('domcontentloaded', () => {
-    API_PRODUCTS.get().then(({ data }) => {
+API_PRODUCTS
+    .get()
+    .then(res => res.text())
+    .then(({ data }) => {
+        // generate the table
         const tableContent = data.reduce(generate_cell_row, '');
 
         const products = $('products');
-            // .html(tableContent)
-            // .parent()
-            // .removeClass('hidden');
+        // append to the DOM the generated table.
+        products.innerHTML = tableContent;
+        // unhide the content from the page
+        products.parentElement.classList.remove('hidden');
     });
-});
