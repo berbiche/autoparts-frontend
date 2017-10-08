@@ -25,13 +25,13 @@ class Api {
     }
 
     async delete(body) {
-        return this.postFetch('delete', body);
+        return this.postFetch('delete', body, 'DELETE');
     }
 
-    async postFetch(endpoint, body) {
+    async postFetch(endpoint, body, method = 'POST') {
         const content_type = 'application/json';
         return fetch(`${this.api_url}/${endpoint}`, {
-            method: 'POST',
+            method: method,
             headers: {
                 'Content-Type': content_type,
                 'X-Content-Type': content_type,
