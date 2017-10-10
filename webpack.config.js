@@ -1,68 +1,122 @@
 const path = require('path');
 const glob = require('glob');
 const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTestPlugin = require('extract-text-webpack-plugin');
-// const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const WebpackCleanupPlugin = require('webpack-cleanup-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+
+
+const extractSASS = new ExtractTextPlugin({
+    allChunks: true,
+    filename: 'output.css',
+});
 
 module.exports = {
     context: __dirname,
-    devtool: 'inline-source-map',
-    entry: {
-        common: [
-            './src/js/utils.js',
-            './src/js/api.js',
-        ],
-        products: glob.sync('./src/**/products/*.{js,html}'),
-        suppliers: glob.sync('./src/**/suppliers/*.{js,html}'),
-        clients: glob.sync('./src/**/clients/*.{js,html}'),
+    devtool: 'source-map',
+    devServer: {
+        contentBase: path.join(__dirname, 'dist'),
+        compress: true,
+        port: 8080,
     },
-    loader: [{
-        test: '',
-    }],
+    entry: () => {
+        const obj = {
+            common: [
+                './src/js/utils.js',
+                './src/js/api.js',
+            ],
+            styles: './src/styles/main.scss',
+        };
+
+        const products = glob.sync('./src/js/products/*.js', { matchBase: true });
+        const suppliers = glob.sync('./src/js/suppliers/*.js', { matchBase: true });
+        const clients = glob.sync('./src/js/clients/*.js', { matchBase: true });
+
+        if (products.length > 0) {
+            obj.products = products;
+        }
+        if (suppliers.length > 0) {
+            obj.suppliers = suppliers;
+        }
+        if (clients.length > 0) {
+            obj.clients = clients;
+        }
+
+        return obj;
+    },
     module: {
-        rules: [{
-            test: /\.scss$/,
-            use: ExtractTestPlugin.extract({
-                loader: ['raw-loader', 'sass-loader'],
-                // options: {
-                //     sourceMap: true,
-                //     'output-style': 'compressed',
-                // },
-            }),
-        }],
+        rules: [
+            {
+                test: /\.scss$/,
+                use: extractSASS.extract({
+                    fallback: 'style-loader',
+                    use: [
+                        { loader: 'css-loader' },
+                        {
+                            loader: 'sass-loader',
+                            options: {
+                                sourceMap: true,
+                                outputStyle: 'compressed',
+                            },
+                        },
+                    ],
+                }),
+            },
+        ],
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: '[name].[chunkhash].js',
+        filename: '[name]/[name].min.js',
+        publicPath: '/',
     },
     plugins: [
+        new WebpackCleanupPlugin(),
+        new webpack.ProgressPlugin(),
+        new CopyWebpackPlugin([
+            {
+                context: './src',
+                from: {
+                    glob: '**/*.html',
+                    dot: true,
+                },
+                to: '.',
+            },
+        ]),
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify('production'),
+            service_url: JSON.stringify('http://localhost:3033'),
+        }),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'common',
-            filename: 'common.min.js',
+            filename: 'common.js',
             minChunks: Infinity,
         }),
         new webpack.NamedChunksPlugin(),
-        new webpack.NamedModulesPlugin(),
-        new HtmlWebpackPlugin({
-            title: 'Autoparts - Frontend',
-            filename: './dist/output.html',
-            inject: 'body',
+        extractSASS,
+        new UglifyJSPlugin({
+            test: /products|suppliers|clients/i,
+            // exclude: /common/,
+            parallel: {
+                cache: true,
+                workers: 4,
+            },
+            sourceMap: true,
+            uglifyOptions: {
+                ecma: 6,
+            },
         }),
-        new ExtractTestPlugin({
-            filename: './dist/output.css',
-            allChunks: true,
-        }),
-        // new UglifyJSPlugin({
-        //     sourceMap: true,
-        //     compress: {
-        //         warnings: false,
-        //     },
-        // }),
     ],
-    // watch: true,
-    // watchOptions: {
-    //     aggregateTimeout: 1000,
-    // },
+    resolve: {
+        modules: [
+            path.join(__dirname, 'src'),
+            path.join(__dirname, 'node_modules'),
+        ],
+    },
+    stats: {
+        children: false,
+        chunksSort: 'field',
+    },
+    target: 'web',
 };
