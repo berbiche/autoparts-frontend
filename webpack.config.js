@@ -14,7 +14,6 @@ const extractSASS = new ExtractTextPlugin({
 });
 
 module.exports = {
-    context: __dirname,
     devtool: 'source-map',
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
@@ -23,16 +22,19 @@ module.exports = {
     },
     entry: () => {
         const obj = {
-            common: [
-                './src/js/utils.js',
-                './src/js/api.js',
-            ],
+            common: glob.sync('js/*.js'),
             styles: './src/styles/main.scss',
         };
 
-        const products = glob.sync('./src/js/products/*.js', { matchBase: true });
-        const suppliers = glob.sync('./src/js/suppliers/*.js', { matchBase: true });
-        const clients = glob.sync('./src/js/clients/*.js', { matchBase: true });
+        const products = glob.sync('./src/js/products/*.js');
+        const suppliers = glob.sync('./src/js/suppliers/*.js');
+        const clients = glob.sync('./src/js/clients/*.js');
+        console.log(products);
+        console.log(suppliers);
+        console.log(clients);
+        // const products = [];
+        // const suppliers = [];
+        // const clients = [];
 
         if (products.length > 0) {
             obj.products = products;
@@ -74,16 +76,6 @@ module.exports = {
     plugins: [
         new WebpackCleanupPlugin(),
         new webpack.ProgressPlugin(),
-        new CopyWebpackPlugin([
-            {
-                context: './src',
-                from: {
-                    glob: '**/*.html',
-                    dot: true,
-                },
-                to: '.',
-            },
-        ]),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify('production'),
             service_url: JSON.stringify('http://localhost:3033'),
@@ -96,22 +88,33 @@ module.exports = {
         new webpack.NamedChunksPlugin(),
         extractSASS,
         new UglifyJSPlugin({
-            test: /products|suppliers|clients/i,
-            // exclude: /common/,
+            test: /products|suppliers|clients|common/i,
+            exclude: /common/,
             parallel: {
                 cache: true,
                 workers: 4,
             },
             sourceMap: true,
             uglifyOptions: {
-                ecma: 6,
+                ecma: 7,
+                warnings: false,
             },
         }),
+        new CopyWebpackPlugin([
+            {
+                context: './src',
+                from: {
+                    glob: '**/*.html',
+                    dot: true,
+                },
+                to: '.',
+            },
+        ]),
     ],
     resolve: {
         modules: [
-            path.join(__dirname, 'src'),
             path.join(__dirname, 'node_modules'),
+            path.join(__dirname, 'src'),
         ],
     },
     stats: {

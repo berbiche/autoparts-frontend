@@ -1,16 +1,19 @@
-import { $, $$, API_PRODUCTS } from './common';
+import { $, $$ } from '../utils';
+import { Api } from '../api';
 
+
+const API_PRODUCTS = new Api('products');
 
 class Product {
     constructor(id, API_PRODUCTS) {
         this.id = id;
         this.API_PRODUCTS = API_PRODUCTS;
     }
-    
+
     getId() {
         return this.id;
     }
-    
+
     supprimer() {
         // return API_PRODUCTS.delete()
     }
@@ -36,7 +39,7 @@ const product = new Product(window.location.search);
     };
     configurer_boutons(sauvegarder, 'is-success');
     configurer_boutons(annuler, 'is-danger');
-    
+
     // configuration des eventListeners
     modifier.addEventListener('click', product.modifier);
     supprimer.addEventListener('click', product.supprimer);
@@ -44,20 +47,20 @@ const product = new Product(window.location.search);
     annuler.addEventListener('click', annuler);
 })();
 
-function modifier() {
-    
-}
+// function modifier() {
 
-function supprimer() {
-    
-}
+// }
 
-function sauvegarder() {
-    
-}
+// function supprimer() {
 
-function annuler() {
-    if (confirm('Voulez-vous vraiment annuler les modifications?')) {
-        window.location.reload();
-    }
-}
+// }
+
+// function sauvegarder() {
+
+// }
+
+// function annuler() {
+//     if (confirm('Voulez-vous vraiment annuler les modifications?')) {
+//         window.location.reload();
+//     }
+// }

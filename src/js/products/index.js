@@ -1,6 +1,8 @@
-import { $, $$, API_PRODUCTS } from './common';
+import { $, $$ } from '../utils';
+import { Api } from '../api';
 
 
+const API_PRODUCTS = new Api('products');
 const generate_cell_row = (accumulator, product) =>
 `${accumulator}
 <tr>
