@@ -20,7 +20,7 @@
             <a href="products/index.html" class="navbar-link is-active">Catalogue</a>
             <div class="navbar-dropdown">
               <a href="products/index.html" class="navbar-item">Catalogue des produits</a>
-              <a href="products/detail.html" class="navbar-item is-active">Consulter un produit</a>
+              <!-- <a href="products/detail.html" class="navbar-item is-active">Consulter un produit</a> -->
               <a href="products/create.html" class="navbar-item">Ajouter un produit</a>
             </div>
           </div>
@@ -43,7 +43,7 @@
   
   <section class="section hidden">
     <div class="container">
-      <form class="form" id="create-form" name="create-form">
+      <form class="form" id="edit-form" name="create-form">
         <div class="field">
           <label class="label" for="code">Code</label>
           <div class="control">
@@ -84,13 +84,17 @@
 
         <div class="colums" id="button-container">
           <button type="button" class="button is-success is-outlined" id="modifier">Modifier</button>
+          <button type="button" class="button is-success is-outlined hidden" id="sauvegarder">Sauvegarder</button>
+          <button type="button" class="button is-danger is-outlined hidden" id="annuler">Annuler</button>
           <button type="button" class="button is-danger is-outlined" id="supprimer">Supprimer</button>
         </div>
       </form>
     </div>
   </section>
 
-  <script src="dist/produts/create.js"></script>
+  <script src="src/js/utils.js"></script>
+  <script src="src/js/api.js"></script>
+  <script src="src/js/products/detail.js"></script>
 </body>
 
 </html>

@@ -1,4 +1,3 @@
-export default
 class Api {
     constructor(api_url) {
         if (typeof api_url !== 'string') {
@@ -12,31 +11,37 @@ class Api {
         return 'http://localhost:3033/';
     }
 
-    async get() {
+    async get(id) {
+        if (id) {
+            return fetch(`${this.api_url}/${id}`);
+        }
         return fetch(`${this.api_url}`);
     }
 
     async create(body) {
-        return this.postFetch('create', body);
+        return this.postFetch('', body);
     }
 
-    async edit(body) {
-        return this.postFetch('edit', body);
+    async edit(id, body) {
+        return this.postFetch('', JSON.stringify({ _id: id, ...body }));
     }
 
-    async delete(body) {
-        return this.postFetch('delete', body, 'DELETE');
+    async delete(id) {
+        return this.postFetch(id, '', 'DELETE');
     }
 
     async postFetch(endpoint, body, method = 'POST') {
         const content_type = 'application/json';
-        return fetch(`${this.api_url}/${endpoint}`, {
-            method: method,
+        return fetch(this.api_url + (endpoint ? `/${endpoint}` : ''), {
+            method,
             headers: {
                 'Content-Type': content_type,
                 'X-Content-Type': content_type,
             },
-            body: typeof body !== 'string' ? JSON.stringify(body) : body,
+            body,
+        }).then((res) => {
+            if (!res.ok) throw res;
+            return res;
         });
     }
 }

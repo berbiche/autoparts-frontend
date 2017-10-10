@@ -26,6 +26,7 @@ const mimeTypeMap = new Map([
 
 http.createServer()
 .on('request', (req, res) => {
+    req.url = req.url.replace(/\?.*/, '');
     let filePath;
     if (/^\/dist/.exec(req.url)) { // if dist folder
         filePath = path.join(root_dir, req.url);

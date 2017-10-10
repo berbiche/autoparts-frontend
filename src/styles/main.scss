@@ -7,3 +7,7 @@ $primary: #cf9413;
 .hidden {
   display: none;
 }
+
+table.table tbody tr {
+  cursor: pointer;
+}
