@@ -17,12 +17,29 @@
           <a class="navbar-item" href="index.html">Index</a>
 
           <div class="navbar-item has-dropdown is-hoverable">
-            <a href="products/index.html" class="navbar-link is-active">Catalogue</a>
+            <a href="products/index.html" class="navbar-link is-active">Produits</a>
 
             <div class="navbar-dropdown">
               <a href="products/index.html" class="navbar-item is-active">Catalogue des produits</a>
-              <!-- <a href="products/detail.html" class="navbar-item">Consulter un produit</a> -->
               <a href="products/create.html" class="navbar-item">Ajouter un produit</a>
+            </div>
+          </div>
+
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a href="clients/index.html" class="navbar-link">Clients</a>
+
+            <div class="navbar-dropdown">
+              <a href="clients/index.html" class="navbar-item">Catalogue des clients</a>
+              <a href="clients/create.html" class="navbar-item">Ajouter un client</a>
+            </div>
+          </div>
+
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a href="suppliers/index.html" class="navbar-link">Fournisseurs</a>
+
+            <div class="navbar-dropdown">
+              <a href="suppliers/index.html" class="navbar-item">Catalogue des fournisseurs</a>
+              <a href="suppliers/create.html" class="navbar-item">Ajouter un fournisseur</a>
             </div>
           </div>
         </div>
@@ -37,7 +54,7 @@
           <div class="column">
             <p class="title">Catalogue des produits</p>
 
-            <p class="subtitle">Tableau de tous les produits dans la base de donnée</p>
+            <p class="subtitle">Tableau de tous les produits dans la base de données</p>
           </div>
         </div>
       </div>
@@ -70,18 +87,20 @@
                   <th>Quantité</th>
                   <th>Price</th>
                   <th>Description</th>
+                  <th>Fournisseur</th>
               </tr>
           </thead>
-          <tbody id="products">
+          <tbody id="table-index">
             <!-- Section to be filled by the API result -->
           </tbody>
       </table>
     </div>
   </section>
-  
+
   <script src="src/js/utils.js"></script>
   <script src="src/js/api.js"></script>
-  <script src="src/js/products/index.js"></script>
+  <script src="src/js/app.js"></script>
+  <script src="src/js/products.js"></script>
 </body>
 
 </html>

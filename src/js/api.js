@@ -15,11 +15,12 @@ class Api {
         if (id) {
             return fetch(`${this.api_url}/${id}`);
         }
-        return fetch(`${this.api_url}`);
+        return fetch(`${this.api_url}?$limit=50`);
     }
 
     async create(body) {
-        return this.postFetch('', body);
+        const data = typeof body !== 'string' ? JSON.stringify(body) : body;
+        return this.postFetch('', data);
     }
 
     async edit(id, body) {

@@ -13,8 +13,15 @@
     "extends": "airbnb-base",
     "rules": {
         "camelcase": "off",
-        "indent": ["error", 4],
-        "quotes": ["error", "single", { "avoidEscape": true, "allowTemplateLiterals": true }]
+        "indent": ["error", 4, { "SwitchCase": 1}],
+        "no-alert": "off",
+        "no-restricted-syntax": "off",
+        "no-undef": "off",
+        "no-underscore-dangle": "off",
+        "no-unused-vars": "off",
+        "no-use-before-define": "off",
+        "quotes": ["error", "single", { "avoidEscape": true, "allowTemplateLiterals": true }],
+        "wrap-iife": "off"
     },
     "plugins": [
         "import"

@@ -3,9 +3,6 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Autoparts">
     <title>Bienvenue chez Autoparts!</title>
     <base href="/">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -17,7 +14,7 @@
     <div class="container">
       <div class="navbar-menu is-active">
         <div class="navbar-start">
-          <a class="navbar-item is-active" href="index.html">Index</a>
+          <a class="navbar-item" href="index.html">Index</a>
 
           <div class="navbar-item has-dropdown is-hoverable">
             <a href="products/index.html" class="navbar-link">Produits</a>
@@ -38,10 +35,10 @@
           </div>
 
           <div class="navbar-item has-dropdown is-hoverable">
-            <a href="suppliers/index.html" class="navbar-link">Fournisseurs</a>
+            <a href="suppliers/index.html" class="navbar-link is-active">Fournisseurs</a>
 
             <div class="navbar-dropdown">
-              <a href="suppliers/index.html" class="navbar-item">Catalogue des fournisseurs</a>
+              <a href="suppliers/index.html" class="navbar-item is-active">Catalogue des fournisseurs</a>
               <a href="suppliers/create.html" class="navbar-item">Ajouter un fournisseur</a>
             </div>
           </div>
@@ -50,37 +47,59 @@
     </div>
   </nav>
 
-  <section id="main-content">
-    <section class="hero is-primary">
-      <div class="hero-body">
-        <div class="container">
-          <div class="columns isvcentered">
-            <div class="column">
-              <p class="title">Page d'accueil</p>
+  <section class="hero is-primary">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns isvcentered">
+          <div class="column">
+            <p class="title">Catalogue des fournisseurs</p>
 
-              <p class="subtitle">Bienvenue sur la page d'accueil</p>
-            </div>
+            <p class="subtitle">Tableau de tous les fournisseurs dans la base de données</p>
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="hero-foot">
-        <div class="container">
-          <nav class="tabs is-boxed">
-            <ul>
-              <li class="is-active">
-                <a href="#">URLs</a>
-              </li>
+    <div class="hero-foot">
+      <div class="container">
+        <nav class="tabs is-boxed">
+          <ul>
+            <li class="is-active">
+              <a>Renomme-moi</a>
+            </li>
 
-              <!-- <li>
-                <a href="documentation/backend.html">Backend</a>
-              </li> -->
-            </ul>
-          </nav>
-        </div>
+            <li>
+              <a>Renomme-moi</a>
+            </li>
+          </ul>
+        </nav>
       </div>
-    </section>
+    </div>
   </section>
+
+  <section class="section">
+    <div class="container">
+      <table class="table is-fullwidth is-striped hidden">
+          <thead>
+              <tr>
+                  <th>Nom du fournisseur</th>
+                  <th>Adresse</th>
+                  <th>Ville</th>
+                  <th>Province</th>
+                  <th>Code postal</th>
+              </tr>
+          </thead>
+          <tbody id="table-index">
+            <!-- Section to be filled by the API result -->
+          </tbody>
+      </table>
+    </div>
+  </section>
+
+  <script src="src/js/utils.js"></script>
+  <script src="src/js/api.js"></script>
+  <script src="src/js/app.js"></script>
+  <script src="src/js/suppliers.js"></script>
 </body>
 
 </html>

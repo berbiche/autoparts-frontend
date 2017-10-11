@@ -2,11 +2,11 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <title>Bienvenue chez Autoparts!</title>
-    <base href="/">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="dist/output.css">
+  <meta charset="UTF-8">
+  <title>Bienvenue chez Autoparts!</title>
+  <base href="/">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="dist/output.css">
 </head>
 
 <body>
@@ -17,20 +17,20 @@
           <a class="navbar-item" href="index.html">Index</a>
 
           <div class="navbar-item has-dropdown is-hoverable">
-            <a href="products/index.html" class="navbar-link is-active">Produits</a>
+            <a href="products/index.html" class="navbar-link">Produits</a>
 
             <div class="navbar-dropdown">
               <a href="products/index.html" class="navbar-item">Catalogue des produits</a>
-              <a href="products/create.html" class="navbar-item is-active">Ajouter un produit</a>
+              <a href="products/create.html" class="navbar-item">Ajouter un produit</a>
             </div>
           </div>
 
           <div class="navbar-item has-dropdown is-hoverable">
-            <a href="clients/index.html" class="navbar-link">Clients</a>
+            <a href="clients/index.html" class="navbar-link is-active">Clients</a>
 
             <div class="navbar-dropdown">
               <a href="clients/index.html" class="navbar-item">Catalogue des clients</a>
-              <a href="clients/create.html" class="navbar-item">Ajouter un client</a>
+              <a href="clients/create.html" class="navbar-item is-active">Ajouter un client</a>
             </div>
           </div>
 
@@ -52,7 +52,7 @@
       <div class="container">
         <div class="columns isvcentered">
           <div class="column">
-            <h1 class="title">Ajouter un produit</h1>
+            <p class="title">Ajouter un client</p>
           </div>
         </div>
       </div>
@@ -63,53 +63,43 @@
     <div class="container">
       <form class="form" id="create-form" name="create-form">
         <div class="field">
-          <label class="label" for="code">Code</label>
+          <label class="label" for="name">Nom du client</label>
           <div class="control">
-            <input id="code" class="input" type="text" placeholder="Code" name="code">
+            <input id="name" class="input" type="text" placeholder="Nom du client" name="name">
           </div>
         </div>
 
         <div class="field">
-          <label class="label" for="name">Nom</label>
+          <label class="label" for="address_street">Adresse</label>
           <div class="control">
-            <input id="name" class="input" type="text" placeholder="Nom" name="name">
+            <input id="address_street" class="input" type="text" placeholder="Adresse" name="address_street">
           </div>
         </div>
 
         <div class="field">
-          <label class="label" for="description">Description</label>
+          <label class="label" for="address_city">Ville</label>
           <div class="control">
-            <textarea id="description" class="textarea" placeholder="Description" name="description"></textarea>
+            <input id="address_city" class="input" type="text" placeholder="Ville" name="address_city">
           </div>
         </div>
 
         <div class="field">
-          <label class="label" for="price">Prix</label>
-          <div class="control has-icons-right">
-            <input id="price" class="input" type="text" placeholder="Prix" name="price" value="0">
-            <span class="icon is-small is-right">
-              <i class="fa fa-dollar"></i>
-            </span>
+          <label class="label" for="address_province">Province</label>
+          <div class="control">
+            <input id="address_province" class="input" type="text" placeholder="Province" name="address_province">
           </div>
         </div>
 
         <div class="field">
-          <label class="label" for="quantity">Quantité</label>
+          <label class="label" for="address_postal_code">Code postal</label>
           <div class="control">
-            <input id="quantity" class="input" type="number" placeholder="Inventaire" name="inventoryActual" value="1">
-          </div>
-        </div>
-
-        <div class="field">
-          <label class="label" for="supplier">Fournisseur</label>
-          <div class="control">
-            <input id="supplier" class="input" type="number" placeholder="Fournisseur" name="supplier">
+            <input id="address_postal_code" class="input" placeholder="Code postal" name="address_postal_code">
           </div>
         </div>
 
         <div class="colums">
-          <button type="button" class="button is-success is-outlined" id="ajouter">Ajouter</button>
-          <button type="button" class="button is-danger is-outlined" id="retour">Retour</button>
+          <button id="ajouter" type="button" class="button is-success is-outlined">Ajouter</button>
+          <button id="retour" type="button" class="button is-danger is-outlined">Retour</button>
         </div>
       </form>
     </div>
@@ -118,7 +108,7 @@
   <script src="src/js/utils.js"></script>
   <script src="src/js/api.js"></script>
   <script src="src/js/app.js"></script>
-  <script src="src/js/products.js"></script>
+  <script src="src/js/clients.js"></script>
 </body>
 
 </html>
