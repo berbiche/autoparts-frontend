@@ -1,6 +1,8 @@
 # autoparts
 Autoparts Frontend
 
+**Requires Node.js <= 8 in order to use `node-sass` (to compile sass files)**
+
 ## Installation
 1. Clone the repository
     ```
